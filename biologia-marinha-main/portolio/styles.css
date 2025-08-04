@@ -1,0 +1,266 @@
+/* Estilos Gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Cabeçalho */
+header {
+    background: #005f73;
+    color: #fff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #0a9396 3px solid;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+header nav ul {
+    padding: 0;
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline;
+    padding: 0 15px;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header nav a:hover {
+    color: #94d2bd;
+    font-weight: bold;
+}
+
+/* Seções de Conteúdo */
+.section-content {
+    padding: 20px;
+    margin: 20px 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.section-content h2 {
+    color: #005f73;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #94d2bd;
+    padding-bottom: 10px;
+}
+
+/* Sobre Mim */
+.profile-image {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #0a9396;
+}
+
+/* Projetos */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-item {
+    background: #e0f2f7;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    text-align: left; /* Mantém o texto alinhado à esquerda */
+}
+
+.project-item h3 {
+    color: #005f73;
+    margin-top: 0;
+}
+
+.project-image {
+    width: 100%;
+    max-width: 400px; /* Define um tamanho máximo para todas as imagens */
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin: 15px auto;
+    border-radius: 5px;
+}
+
+/* Habilidades e Contato */
+.section-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.section-content ul li {
+    background: #f0f8ff;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-left: 5px solid #0a9396;
+    border-radius: 4px;
+}
+
+.section-content a {
+    color: #005f73;
+    text-decoration: none;
+}
+
+.section-content a:hover {
+    text-decoration: underline;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #005f73;
+    color: #fff;
+    margin-top: 20px;
+}
+
+/* Responsividade Básica */
+@media (max-width: 768px) {
+    header nav ul li {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Adicione isso ao seu arquivo CSS */
+
+/* Animação para os itens de habilidades */
+@keyframes slideIn {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+#habilidades ul li {
+    animation: slideIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+#habilidades ul li:nth-child(1) { animation-delay: 0.1s; }
+#habilidades ul li:nth-child(2) { animation-delay: 0.2s; }
+#habilidades ul li:nth-child(3) { animation-delay: 0.3s; }
+#habilidades ul li:nth-child(4) { animation-delay: 0.4s; }
+#habilidades ul li:nth-child(5) { animation-delay: 0.5s; }
+#habilidades ul li:nth-child(6) { animation-delay: 0.6s; }
+#habilidades ul li:nth-child(7) { animation-delay: 0.7s; }
+
+/* Efeito de onda para imagens */
+.project-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 147, 150, 0.1);
+    transform: scale(0);
+    transition: transform 0.3s ease;
+    border-radius: 5px;
+}
+
+.project-image:hover::after {
+    transform: scale(1);
+}
+
+/* Estilos para o personagem */
+#character-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+#character {
+    width: 150px;
+    height: auto;
+    animation: float 3s ease-in-out infinite;
+}
+
+#speech-bubble {
+    position: absolute;
+    bottom: 100%;
+    right: 100%;
+    background-color: white;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    width: 200px;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: bottom right;
+    transition: all 0.3s ease;
+}
+
+#speech-bubble.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#bubble-text {
+    margin: 0;
+    font-size: 14px;
+    color: #005f73;
+}
+
+.bubble-tail {
+    position: absolute;
+    bottom: -10px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid white;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}   
